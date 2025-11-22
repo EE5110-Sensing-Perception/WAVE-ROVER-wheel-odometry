@@ -1,0 +1,13 @@
+odometry_estimator:
+  ros__parameters:
+    wheel_radius: 0.04        # meters
+    wheel_base: 0.13         # meters
+    update_rate: 20.0         # Hz (updates per second)
+    # Experimental calibration: at cmd_vel_executed linear.x = 0.5 (scaled 0-1.0), 
+    # wheels complete 1 full rotation in this time
+    rotation_time_at_half_vel: 0.375  # seconds for one rotation at cmd_vel = 0.5
+    cmd_vel_test_value: 0.5            # cmd_vel value used in calibration (0-1.0 scale)
+    
+    # Note: This node always publishes odom_wheel->base_link transform
+    # The robot_localization EKF publishes odom->base_link transform
+    # No conflicts since they use different frame names
